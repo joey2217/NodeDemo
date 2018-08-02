@@ -1,4 +1,4 @@
-const { database} =require('../config')
+const {database} =require('../config')
 
 const knex = require('knex')({
     client: 'mysql',
@@ -11,6 +11,6 @@ const knex = require('knex')({
         charset: database.char,
         multipleStatements: true
     }
-})
+});
 
 module.exports.knex=knex;
