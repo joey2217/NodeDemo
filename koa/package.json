@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/BruceCham/koa2-tutorial#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "ip": "^1.1.5",
     "knex": "^0.15.2",
     "koa": "^2.3.0",
@@ -24,6 +25,7 @@
     "koa-nunjucks-2": "^3.0.2",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
+    "koa-views": "^6.1.4",
     "log4js": "^3.0.4",
     "mysql": "^2.16.0"
   }

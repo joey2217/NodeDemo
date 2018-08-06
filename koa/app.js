@@ -13,6 +13,14 @@ const miLog = require('./middleware/mi-log')
 // 引入规则中件间
 const miRule = require('./middleware/mi-rule')
 
+const ejs = require('ejs');
+const views = require('koa-views');
+
+// 配置服务端模板渲染引擎中间件
+app.use(views(__dirname + '/views', {
+  extension: 'ejs'
+}))
+
 // 使用响应处理中间件
 app.use(response)
 app.use(miLog({
@@ -54,6 +62,8 @@ app.on("error", (err, ctx) => {
 }) 
 // 解析请求体
 app.use(bodyParser())
+
+
 
 const router = require('./routers')
 // 引入路由分发
