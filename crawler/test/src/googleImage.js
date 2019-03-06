@@ -22,15 +22,17 @@ const puppeteer = require('puppeteer');
   await page.keyboard.press('Enter')
   await page.waitFor(2000)
   
-  await page.evaluate(()=>{
-    let h=5000
-    const top=document.documentElement.scrollTop
-    while (condition) {
-      document.documentElement.scrollTop()
-    }
-  })
-  await page.screenshot({
-    path: 'google2.png'
-  });
-  await browser.close();
+  async function scrollPage(i) {
+    await page.evaluate(function () {
+     /* 这里做的是渐进滚动，如果一次性滚动则不会触发获取新数据的监听 */
+     for (var y = 0; y <= 1000*i; y += 100) {
+      window.scrollTo(0,y)
+     }
+    })
+   }
+   let i = 0
+   while (i < 3) {
+    li = await scrollPage(++i)
+    i++
+   }
 })();
